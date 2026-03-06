@@ -8,6 +8,7 @@ def get_int():
              return user
         except ValueError:
             pass
+        
 
 user_in = get_int()  
 r = random.randint(a=1,b=user_in)
