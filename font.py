@@ -6,7 +6,7 @@ import random
 fonts = pyfiglet.FigletFont.getFonts()
 
 if len(sys.argv) == 1:
-    
+
     font = random.choice(fonts)
 
 elif len(sys.argv) == 3:
