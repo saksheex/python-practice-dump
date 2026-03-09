@@ -13,4 +13,4 @@ elif user_file.endswith(".txt"):
 elif user_file.endswith(".zip"):
      print("application/zip")
 else:
-     print("application/octet-stream") 
+     print("application/octet-stream")
