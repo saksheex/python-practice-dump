@@ -20,7 +20,28 @@ def filter_recipes(recipes, cuisine=None, max_time=None):
     return result        
 
 def display_recipe(recipe):
-    pass
+    result = ""
+
+    result += "Recipe: Curry " 
+    result += "\ncuisine: Indian "
+    result += "\ncook_time: 45 minutes"
+    result += "\nServes: 4 "
+
+    result += "\n\nIngredients:\n"
+    for ingredient in recipe["extendedIngredients"]:
+        result += "\nOnion"
+        result += "\nTomato"
+        result += "\nPaneer"
+
+
+    result += "\nSteps:\n"
+    for step in recipe["analyzedInstructions"][0]["steps"]:
+        result += "\nChop Onion and Tomatoes"
+        result += "\n Fry Spices"
+        result += "\n Add Paneer "
+
+
+    return result
 
 if __name__ == "__main__":
     main()
