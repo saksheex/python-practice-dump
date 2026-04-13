@@ -2,11 +2,30 @@
 import os
 import requests
 from dotenv import load_dotenv
+from PIL import Image
+import google.generativeai as genai
 def main():
     pass
 
 def analyze_image(image_path):
-    pass
+    load_dotenv()
+    key = os.getenv("GEMINI_KEY")
+    
+    if not os.path.exists(image_path):
+       raise FileNotFoundError(f"Image not found: {image_path}")
+    image = Image.open()
+
+    genai.configure(GEMINI_KEY = key)
+    prompt = "List all the food ingredients you can see in this image. Return only ingredient names separated by commas."
+    model = genai.GenerativeModel("gemini-1.5-flash")
+    response = model.generate_content([prompt, image])
+    ingredients_string = response.text
+
+    ingredients = []
+    for items in ingredients_string:
+      ingredients.append(items.strip())
+    return ingredients
+
 
 def get_recipes(ingredients):
     load_dotenv()
