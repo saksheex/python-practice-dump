@@ -5,12 +5,17 @@ from dotenv import load_dotenv
 from PIL import Image
 import google.generativeai as genai
 def main():
-    pass
+    user = input("Enter Your Image:")
+    ingredients = analyze_image(user)
+    recipes = get_recipes(ingredients)
+    filtered = filter_recipes(recipes)
+    result = display_recipe(filtered[0])
+    print (result)
 
 def analyze_image(image_path):
     load_dotenv()
     key = os.getenv("GEMINI_KEY")
-    
+
     if not os.path.exists(image_path):
        raise FileNotFoundError(f"Image not found: {image_path}")
     image = Image.open()
